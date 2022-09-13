@@ -10,6 +10,8 @@ function background(){
      * alterar o background do body para a cor #BECCC3.
      */
 
+    var cor = document.querySelector("body#body").style.background = "#BECCC3";
+
 }
 
 /**
@@ -25,6 +27,12 @@ function show(){
       * Recupera os valores dos campos de texto cujo o id='fname' e id='lname' e apresente o nome
       * e o sobrenome de uma pessoa (separado por um espaço) na div id='result'
       */
+
+    var fname = document.getElementById("fname").value;
+    var lname = document.getElementById("lname").value;
+    var result = document.getElementById("result").innerHTML = (fname + " " + lname);
+    
+      
 }
 
 /**
@@ -35,6 +43,15 @@ function search(){
 
     var data = [{name: "Rodrigo"}, {name: "Ricardo"}, {name: "Fabio"}, {name: "Alex"}, {name: "Sílvia"}];
 
+    let searchName = document.getElementById('name').value;
+    let searchDiv = document.getElementById('search');
+    let t = '';
+    data.forEach(person => {
+         if(person.name.toLowerCase().substr(0, searchName.length).indexOf(`${searchName.toLowerCase()}`) > -1){
+            t += `<div>${person.name}</div>`;
+        }
+    });
+    document.getElementById('search').innerHTML = t;
     /**
      * Issue 3
      *
